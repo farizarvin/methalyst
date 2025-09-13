@@ -1,41 +1,94 @@
 "use client"
 
+import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BookOpen, Beaker, Leaf, TrendingUp, Lightbulb, Globe } from "lucide-react"
 
 export function EducationalPanel() {
+  const [showMobileText, setShowMobileText] = useState<string | null>(null)
+
+  const handleMobileTabClick = (tabValue: string) => {
+    setShowMobileText(showMobileText === tabValue ? null : tabValue)
+  }
+
   return (
-    <section id="education" className="py-16 bg-gradient-to-r from-green-50 to-emerald-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <BookOpen className="h-8 w-8 text-green-600" />
-            <h2 className="text-3xl font-bold text-primary font-[family-name:var(--font-montserrat)]">Panel Edukasi</h2>
+    <section
+      id="education"
+      className="py-20 bg-gradient-to-r from-green-50 to-emerald-50 min-h-screen flex items-center"
+    >
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <BookOpen className="h-10 w-10 text-green-600" />
+            <h2 className="text-4xl font-bold text-primary font-[family-name:var(--font-montserrat)]">Panel Edukasi</h2>
           </div>
-          <p className="text-muted-foreground max-w-2xl mx-autotext-lg text-green-700 max-w-3xl mx-auto">
+          <p className="text-muted-foreground max-w-3xl mx-auto text-xl text-green-700">
             Pelajari lebih dalam tentang konversi CO₂ menjadi metanol dan dampaknya terhadap lingkungan
           </p>
         </div>
 
         <Tabs defaultValue="process" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="process" className="flex items-center gap-2">
-              <Beaker className="h-4 w-4" />
-              Proses Kimia
+          <TabsList className="flex w-full rounded-xl overflow-hidden mb-12 bg-white/80 backdrop-blur-sm shadow-lg p-2">
+            <TabsTrigger
+              value="process"
+              className="flex-1 min-w-0 flex flex-col items-center justify-center py-4 px-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
+              onClick={() => handleMobileTabClick("process")}
+            >
+              <div className="flex flex-col items-center justify-center">
+                <Beaker className="h-6 w-6 mb-2" />
+                <span className="text-sm font-medium text-center leading-tight">
+                  <span className="hidden lg:inline">Proses Kimia</span>
+                  <span className="hidden md:inline lg:hidden">Proses</span>
+                  <span className="md:hidden">{showMobileText === "process" ? "Proses Kimia" : ""}</span>
+                </span>
+              </div>
             </TabsTrigger>
-            <TabsTrigger value="benefits" className="flex items-center gap-2">
-              <Leaf className="h-4 w-4" />
-              Manfaat Lingkungan
+
+            <TabsTrigger
+              value="benefits"
+              className="flex-1 min-w-0 flex flex-col items-center justify-center py-4 px-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
+              onClick={() => handleMobileTabClick("benefits")}
+            >
+              <div className="flex flex-col items-center justify-center">
+                <Leaf className="h-6 w-6 mb-2" />
+                <span className="text-sm font-medium text-center leading-tight">
+                  <span className="hidden lg:inline">Manfaat Lingkungan</span>
+                  <span className="hidden md:inline lg:hidden">Manfaat</span>
+                  <span className="md:hidden">{showMobileText === "benefits" ? "Manfaat Lingkungan" : ""}</span>
+                </span>
+              </div>
             </TabsTrigger>
-            <TabsTrigger value="applications" className="flex items-center gap-2">
-              <TrendingUp className="h-4 w-4" />
-              Aplikasi Industri
+
+            <TabsTrigger
+              value="applications"
+              className="flex-1 min-w-0 flex flex-col items-center justify-center py-4 px-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
+              onClick={() => handleMobileTabClick("applications")}
+            >
+              <div className="flex flex-col items-center justify-center">
+                <TrendingUp className="h-6 w-6 mb-2" />
+                <span className="text-sm font-medium text-center leading-tight">
+                  <span className="hidden lg:inline">Aplikasi Industri</span>
+                  <span className="hidden md:inline lg:hidden">Aplikasi</span>
+                  <span className="md:hidden">{showMobileText === "applications" ? "Aplikasi Industri" : ""}</span>
+                </span>
+              </div>
             </TabsTrigger>
-            <TabsTrigger value="future" className="flex items-center gap-2">
-              <Globe className="h-4 w-4" />
-              Masa Depan
+
+            <TabsTrigger
+              value="future"
+              className="flex-1 min-w-0 flex flex-col items-center justify-center py-4 px-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
+              onClick={() => handleMobileTabClick("future")}
+            >
+              <div className="flex flex-col items-center justify-center">
+                <Globe className="h-6 w-6 mb-2" />
+                <span className="text-sm font-medium text-center leading-tight">
+                  <span className="hidden lg:inline">Masa Depan</span>
+                  <span className="hidden md:inline lg:hidden">Future</span>
+                  <span className="md:hidden">{showMobileText === "future" ? "Masa Depan" : ""}</span>
+                </span>
+              </div>
             </TabsTrigger>
           </TabsList>
 
@@ -62,7 +115,7 @@ export function EducationalPanel() {
                     <Badge variant="outline" className="mr-2">
                       Tekanan: 20-50 bar
                     </Badge>
-                    <Badge variant="outline">Katalis: Cu</Badge>
+                    <Badge variant="outline">Katalis: In₂O₃</Badge>
                   </div>
                 </CardContent>
               </Card>
