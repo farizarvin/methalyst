@@ -16,21 +16,21 @@ export function HeroSection() {
         {/* Hero Illustration */}
         <div className="mb-12 flex justify-center">
           <div className="relative group">
-            <div className="w-40 h-40 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-full flex items-center justify-center shadow-2xl backdrop-blur-sm border border-green-200/50 group-hover:scale-105 transition-transform duration-300">
-              <div className="w-28 h-28 bg-gradient-to-br from-green-400/30 to-emerald-400/30 rounded-full flex items-center justify-center">
-                <Leaf className="w-16 h-16 text-green-600 animate-pulse" />
+            <div className="w-55 h-55 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-full flex items-center justify-center shadow-2xl backdrop-blur-sm border border-green-200/50 group-hover:scale-105 transition-transform duration-300">
+              <div className="w-43 h-43 bg-gradient-to-br from-green-400/30 to-emerald-400/30 rounded-full flex items-center justify-center">
+                <Leaf className="w-31 h-31 text-green-600 animate-pulse" />
               </div>
             </div>
 
             {/* Floating Icons */}
-            <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-lg animate-bounce">
-              <Atom className="w-6 h-6 text-white" />
+            <div className="absolute -top-5 -right-12 w-22 h-22 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+              <Atom className="w-16 h-16 text-white" />
             </div>
-            <div className="absolute -bottom-2 -left-4 w-10 h-10 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-full flex items-center justify-center shadow-lg animate-bounce delay-500">
-              <Beaker className="w-5 h-5 text-white" />
+            <div className="absolute -bottom-10 -left-14 w-20 h-20 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-full flex items-center justify-center shadow-lg animate-bounce delay-500">
+              <Beaker className="w-15 h-15 text-white" />
             </div>
-            <div className="absolute top-8 -left-6 w-8 h-8 bg-gradient-to-br from-green-400 to-teal-400 rounded-full flex items-center justify-center shadow-lg animate-bounce delay-1000">
-              <TrendingUp className="w-4 h-4 text-white" />
+            <div className="absolute top-2 -left-15 w-18 h-18 bg-gradient-to-br from-green-400 to-teal-400 rounded-full flex items-center justify-center shadow-lg animate-bounce delay-1000">
+              <TrendingUp className="w-14 h-14 text-white" />
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@ export function HeroSection() {
             />
           </span>
         </h1>
-
+        <div className="pt-12" />
         <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto font-[family-name:var(--font-poppins)] leading-relaxed">
           Platform AI terdepan untuk simulasi katalis CO₂ ke metanol dengan prediksi akurat dan analisis dampak
           lingkungan real-time.
