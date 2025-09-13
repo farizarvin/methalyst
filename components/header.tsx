@@ -38,15 +38,15 @@ export function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center h-16">
-          {/* Logo kiri dengan ukuran tetap */}
+          {/* Logo kiri dengan ukuran diperbesar */}
           <div className="flex items-center flex-shrink-0">
             <Image
-              src="/logo.png" // path langsung dari public/logo.png
+              src="/logo.png" // pastikan nama file sesuai
               alt="Logo"
-              width={40} // ukuran lebih besar, bisa disesuaikan
-              height={40} // ukuran lebih besar, bisa disesuaikan
+              width={80}  // diperbesar dari 40 jadi 80
+              height={80} // diperbesar dari 40 jadi 80
               className="object-contain"
-              priority // untuk loading yang lebih cepat
+              priority
             />
           </div>
           {/* Navbar tengah (desktop) */}

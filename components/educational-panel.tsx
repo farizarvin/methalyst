@@ -30,10 +30,10 @@ export function EducationalPanel() {
         </div>
 
         <Tabs defaultValue="process" className="w-full">
-          <TabsList className="flex w-full rounded-xl overflow-hidden mb-12 bg-white/80 backdrop-blur-sm shadow-lg p-2">
+          <TabsList className="flex w-full rounded-xl overflow-hidden mb-12 bg-white/80 backdrop-blur-sm shadow-lg p-4 py-8">
             <TabsTrigger
               value="process"
-              className="flex-1 min-w-0 flex flex-col items-center justify-center py-4 px-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
+              className="flex-1 min-w-0 flex flex-col items-center justify-center py-6 px-4 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
               onClick={() => handleMobileTabClick("process")}
             >
               <div className="flex flex-col items-center justify-center">
@@ -48,7 +48,7 @@ export function EducationalPanel() {
 
             <TabsTrigger
               value="benefits"
-              className="flex-1 min-w-0 flex flex-col items-center justify-center py-4 px-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
+              className="flex-1 min-w-0 flex flex-col items-center justify-center py-6 px-4 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
               onClick={() => handleMobileTabClick("benefits")}
             >
               <div className="flex flex-col items-center justify-center">
@@ -63,7 +63,7 @@ export function EducationalPanel() {
 
             <TabsTrigger
               value="applications"
-              className="flex-1 min-w-0 flex flex-col items-center justify-center py-4 px-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
+              className="flex-1 min-w-0 flex flex-col items-center justify-center py-6 px-4 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
               onClick={() => handleMobileTabClick("applications")}
             >
               <div className="flex flex-col items-center justify-center">
@@ -78,7 +78,7 @@ export function EducationalPanel() {
 
             <TabsTrigger
               value="future"
-              className="flex-1 min-w-0 flex flex-col items-center justify-center py-4 px-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
+              className="flex-1 min-w-0 flex flex-col items-center justify-center py-6 px-4 rounded-lg hover:bg-gray-100 transition-colors duration-200 group data-[state=active]:bg-green-100 data-[state=active]:text-green-700"
               onClick={() => handleMobileTabClick("future")}
             >
               <div className="flex flex-col items-center justify-center">
