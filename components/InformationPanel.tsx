@@ -60,7 +60,7 @@ export function InformationPanel() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-primary mb-4 font-[family-name:var(--font-montserrat)]">
-            Education Panel
+            FAQ
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Pelajari lebih lanjut tentang konversi CO₂ menjadi metanol dan teknologi katalisis
