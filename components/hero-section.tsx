@@ -73,18 +73,25 @@ export function HeroSection() {
           lingkungan real-time.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <Button
-            size="lg"
-            className="text-lg px-10 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200"
-          >
-            <a href="#prediction">mulai prediksi</a>
-            <ArrowDown className="ml-3 h-5 w-5 animate-bounce" />
-          </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
-            <a href="#information">Learn More</a> 
-          </Button>
-        </div>
+<div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+  <Button
+    size="lg"
+    className="text-lg px-10 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200"
+  >
+    <a href="#prediction">mulai prediksi</a>
+    <ArrowDown className="ml-3 h-5 w-5 animate-bounce" />
+  </Button>
+  <Button 
+    variant="outline" 
+    size="lg" 
+    className="text-lg px-10 py-4 bg-white border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200"
+  >
+    <a href="#information">FAQ</a>
+  </Button>
+</div>
+
+
+
 
         {/* Stats Section */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">

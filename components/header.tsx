@@ -27,11 +27,11 @@ export function Header() {
   return (
     <header
       className={`border-b border-green-100 sticky top-0 z-50 transition-all duration-300 ${
-        isHovered 
-          ? "bg-white backdrop-blur-md" 
-          : isScrolled 
-          ? "bg-white/20 backdrop-blur-md" 
-          : "bg-white/95 backdrop-blur-md"
+        isHovered
+          ? "bg-white backdrop-blur-md"
+          : isScrolled
+            ? "bg-white/20 backdrop-blur-md"
+            : "bg-white/95 backdrop-blur-md"
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -39,12 +39,12 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center h-16">
           {/* Logo kiri dengan ukuran diperbesar */}
-          <div className="flex items-center flex-shrink-0">
+          <div className="flex items-center flex-shrink-0 w-32">
             <Image
               src="/logo.png" // pastikan nama file sesuai
               alt="Logo"
-              width={80}  // diperbesar dari 40 jadi 80
-              height={80} // diperbesar dari 40 jadi 80
+              width={200} // diperbesar dari 80 jadi 120 agar lebih terlihat
+              height={200} // diperbesar dari 80 jadi 120 agar lebih terlihat
               className="object-contain"
               priority
             />
@@ -65,6 +65,8 @@ export function Header() {
               )
             })}
           </div>
+          <div className="hidden md:block w-32"></div>{" "}
+          {/* menyesuaikan spacer dari w-20 jadi w-32 untuk menjaga navbar tetap center */}
           {/* Hamburger button mobile kanan */}
           <div className="flex md:hidden ml-auto">
             <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
