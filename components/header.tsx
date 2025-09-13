@@ -24,7 +24,7 @@ export function Header() {
   ]
 
   return (
-    <header 
+    <header
       className={`border-b border-green-100 sticky top-0 z-50 transition-all duration-300 ${
         isHovered 
           ? "bg-white backdrop-blur-md" 
@@ -36,9 +36,9 @@ export function Header() {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="container mx-auto px-4">
-        {/* Gunakan grid agar navbar center */}
-        <div className="grid grid-cols-3 items-center h-16">
-          {/* Logo di kiri */}
+        {/* Gunakan flex agar hamburger selalu di kanan */}
+        <div className="flex items-center h-16">
+          {/* Logo kiri */}
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-green-200 rounded-lg flex items-center justify-center">
               <Leaf className="h-5 w-5 text-white" />
@@ -47,9 +47,8 @@ export function Header() {
               methalyst
             </span>
           </div>
-
-          {/* Navbar di tengah grid */}
-          <div className="hidden md:flex justify-center">
+          {/* Navbar tengah (desktop) */}
+          <div className="hidden md:flex flex-1 justify-center">
             {navItems.map((item) => {
               const Icon = item.icon
               return (
@@ -64,16 +63,14 @@ export function Header() {
               )
             })}
           </div>
-
-          {/* Tombol hamburger kanan saat mobile */}
-          <div className="flex justify-end md:hidden">
+          {/* Hamburger button mobile kanan */}
+          <div className="flex md:hidden ml-auto">
             <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
+        {/* Mobile Menu tanpa "Mulai Prediksi" */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-green-100">
             <div className="space-y-2">
@@ -91,11 +88,6 @@ export function Header() {
                   </a>
                 )
               })}
-              <div className="px-4 pt-2">
-                <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90">
-                  Mulai Prediksi
-                </Button>
-              </div>
             </div>
           </div>
         )}
