@@ -12,9 +12,9 @@ export function EducationalPanel() {
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
             <BookOpen className="h-8 w-8 text-green-600" />
-            <h2 className="text-3xl font-bold text-green-800">Panel Edukasi</h2>
+            <h2 className="text-3xl font-bold text-primary font-[family-name:var(--font-montserrat)]">Panel Edukasi</h2>
           </div>
-          <p className="text-lg text-green-700 max-w-3xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-autotext-lg text-green-700 max-w-3xl mx-auto">
             Pelajari lebih dalam tentang konversi CO₂ menjadi metanol dan dampaknya terhadap lingkungan
           </p>
         </div>
@@ -62,7 +62,7 @@ export function EducationalPanel() {
                     <Badge variant="outline" className="mr-2">
                       Tekanan: 20-50 bar
                     </Badge>
-                    <Badge variant="outline">Katalis: Cu/ZnO/Al₂O₃</Badge>
+                    <Badge variant="outline">Katalis: Cu</Badge>
                   </div>
                 </CardContent>
               </Card>

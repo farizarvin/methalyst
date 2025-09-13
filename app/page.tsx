@@ -4,6 +4,7 @@ import { PredictionForm } from "@/components/prediction-form"
 import { OptimizationPanel } from "@/components/optimization-panel"
 import { Footer } from "@/components/footer"
 import { EducationalPanel } from "@/components/educational-panel"
+import { InformationPanel } from "@/components/InformationPanel"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
           <OptimizationPanel />
         </div>
         <EducationalPanel />
+        <InformationPanel />
       </main>
       <Footer />
     </div>

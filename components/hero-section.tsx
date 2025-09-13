@@ -1,5 +1,8 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Leaf, Zap, Beaker, TrendingUp } from "lucide-react"
+import { ArrowDown, Leaf, Zap, Beaker, TrendingUp, Computer, Server, Atom } from "lucide-react"
+import { Typewriter } from 'react-simple-typewriter'
 
 export function HeroSection() {
   return (
@@ -21,7 +24,7 @@ export function HeroSection() {
 
             {/* Floating Icons */}
             <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center shadow-lg animate-bounce">
-              <Zap className="w-6 h-6 text-white" />
+              <Atom className="w-6 h-6 text-white" />
             </div>
             <div className="absolute -bottom-2 -left-4 w-10 h-10 bg-gradient-to-br from-teal-500 to-emerald-500 rounded-full flex items-center justify-center shadow-lg animate-bounce delay-500">
               <Beaker className="w-5 h-5 text-white" />
@@ -40,8 +43,28 @@ export function HeroSection() {
           <br />
           <span className="text-gray-800">to Green Fuel</span>
           <br />
+          {/* Efek Typewriter */}
           <span className="text-2xl md:text-4xl bg-gradient-to-r from-emerald-500 to-green-500 bg-clip-text text-transparent font-medium">
-            Explore. Predict. Make Impact.
+            <Typewriter
+              words={[
+                "Explore new ideas.",
+                "Predict with AI.",
+                "Make real impact.",
+                "Optimize your yield.",
+                "Simulate CO₂–>Methanol.",
+                "Reduce emissions now.",
+                "Go green together.",
+                "Smart fuel innovation.",
+                "Catalyst your process.",
+                "Green future starts.",
+              ]}
+              loop={0}
+              cursor
+              cursorStyle="_"
+              typeSpeed={75}
+              deleteSpeed={45}
+              delaySpeed={2000}
+            />
           </span>
         </h1>
 
@@ -55,15 +78,18 @@ export function HeroSection() {
             size="lg"
             className="text-lg px-10 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200"
           >
-            Mulai Prediksi
+            <a href="#prediction">mulai prediksi</a>
             <ArrowDown className="ml-3 h-5 w-5 animate-bounce" />
+          </Button>
+          <Button variant="outline" size="lg" className="text-lg px-8 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
+            <a href="#information">Learn More</a> 
           </Button>
         </div>
 
         {/* Stats Section */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-green-100">
-            <div className="text-3xl font-bold text-green-600 mb-2">95%+</div>
+            <div className="text-3xl font-bold text-green-600 mb-2">93%+</div>
             <div className="text-gray-600">Akurasi Prediksi</div>
           </div>
           <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-green-100">

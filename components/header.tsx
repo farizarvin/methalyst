@@ -1,26 +1,46 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Leaf, Calculator, BarChart3, Upload, Brain, Target } from "lucide-react"
+import { Menu, X, Leaf, Calculator, Brain, Target } from "lucide-react"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const navItems = [
-    { name: "Prediksi", href: "#simulator", icon: Calculator },
-    { name: "Simulator", href: "#what-if", icon: BarChart3 },
-    { name: "Batch Upload", href: "#batch", icon: Upload },
-    { name: "Analysis", href: "#analysis", icon: Brain },
+    { name: "Prediksi", href: "#prediction", icon: Calculator },
     { name: "Optimasi", href: "#optimization", icon: Target },
+    { name: "Edukasi", href: "#education", icon: Brain },
   ]
 
   return (
-    <header className="bg-white/95 backdrop-blur-md border-b border-green-100 sticky top-0 z-50">
+    <header 
+      className={`border-b border-green-100 sticky top-0 z-50 transition-all duration-300 ${
+        isHovered 
+          ? "bg-white backdrop-blur-md" 
+          : isScrolled 
+          ? "bg-white/20 backdrop-blur-md" 
+          : "bg-white/95 backdrop-blur-md"
+      }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        {/* Gunakan grid agar navbar center */}
+        <div className="grid grid-cols-3 items-center h-16">
+          {/* Logo di kiri */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-green-200 rounded-lg flex items-center justify-center">
               <Leaf className="h-5 w-5 text-white" />
             </div>
             <span className="text-xl font-bold text-primary font-[family-name:var(--font-montserrat)]">
@@ -28,7 +48,8 @@ export function Header() {
             </span>
           </div>
 
-          <div className="hidden md:flex items-center space-x-1">
+          {/* Navbar di tengah grid */}
+          <div className="hidden md:flex justify-center">
             {navItems.map((item) => {
               const Icon = item.icon
               return (
@@ -44,17 +65,15 @@ export function Header() {
             })}
           </div>
 
-          <div className="hidden md:block">
-            <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90">
-              Mulai Prediksi
+          {/* Tombol hamburger kanan saat mobile */}
+          <div className="flex justify-end md:hidden">
+            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
-
-          <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
         </div>
 
+        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-green-100">
             <div className="space-y-2">

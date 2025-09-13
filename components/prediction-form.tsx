@@ -281,7 +281,7 @@ export function PredictionForm() {
                   </div>
 
                   <div className="flex justify-center pt-6">
-                    <Button onClick={handlePredict} disabled={isLoading} size="lg" className="px-12">
+                    <Button onClick={handlePredict} disabled={isLoading} size="lg" className="px-12 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200">
                       {isLoading ? (
                         <>
                           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
