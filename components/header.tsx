@@ -37,20 +37,24 @@ export function Header() {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center h-16">
-          {/* Logo kiri dengan ukuran diperbesar */}
-          <div className="flex items-center flex-shrink-0 w-32">
-            <Image
-              src="/logo.png" // pastikan nama file sesuai
-              alt="Logo"
-              width={200} // diperbesar dari 80 jadi 120 agar lebih terlihat
-              height={200} // diperbesar dari 80 jadi 120 agar lebih terlihat
-              className="object-contain"
-              priority
-            />
+        <div className="flex items-center justify-between h-16">
+          {/* Logo Kiri - Diperbesar */}
+          <a href="#home">
+          <div className="flex items-center flex-shrink-0 w-48">
+            <div className="relative w-full h-22">
+              <Image
+                src="/logo2.png"
+                alt="Logo"
+                fill
+                className="object-contain object-left"
+                priority
+              />
+            </div>
           </div>
-          {/* Navbar tengah (desktop) */}
-          <div className="hidden md:flex flex-1 justify-center">
+          </a>
+
+          {/* Navbar Tengah (Desktop) */}
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => {
               const Icon = item.icon
               return (
@@ -65,15 +69,22 @@ export function Header() {
               )
             })}
           </div>
-          <div className="hidden md:block w-32"></div>{" "}
-          {/* menyesuaikan spacer dari w-20 jadi w-32 untuk menjaga navbar tetap center */}
-          {/* Hamburger button mobile kanan */}
-          <div className="flex md:hidden ml-auto">
-            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+
+          {/* Spacer Kanan (Desktop) */}
+          <div className="hidden md:block w-48"></div>
+
+          {/* Hamburger Button (Mobile) */}
+          <div className="flex md:hidden">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
+
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-green-100">

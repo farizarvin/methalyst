@@ -1,4 +1,5 @@
 import { Leaf, Beaker, Github, Mail, ExternalLink } from "lucide-react"
+import Image from "next/image"
 
 export function Footer() {
   return (
@@ -7,16 +8,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="flex items-center space-x-1">
-                <Leaf className="h-8 w-8 text-primary" />
-                <Beaker className="h-6 w-6 text-secondary" />
+            <div className="flex items-center flex-shrink-0 w-48">
+              <div className="relative w-full h-15">
+                <Image
+                  src="/logo2.png"
+                  alt="Logo"
+                  fill
+                  className="object-contain object-left"
+                  priority
+                />
               </div>
-              <span className="text-xl font-bold text-primary font-[family-name:var(--font-montserrat)]">
-                CO₂-to-Methanol Predictor
-              </span>
             </div>
-            <p className="text-muted-foreground text-sm mb-4 max-w-md">
+            <p className="text-muted-foreground text-sm mb-2 max-w-md">
               Platform prediksi inovatif untuk konversi CO₂ menjadi metanol menggunakan machine learning. Membantu
               peneliti dan engineer mengoptimalkan proses katalisis untuk masa depan yang lebih hijau.
             </p>
