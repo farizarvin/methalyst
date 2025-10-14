@@ -111,7 +111,7 @@ export function Footer() {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 CO₂-to-Methanol Predictor. Built with ❤️ for a sustainable future.
+            © 2024 Methalyst. Built with ❤️ for a sustainable future.
           </p>
         </div>
       </div>
