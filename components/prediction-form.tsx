@@ -17,6 +17,15 @@ interface PredictionResult {
   confidence: number
 }
 
+// Simple deterministic pseudo-random generator based on a string seed
+const seededRandom = (seed: string) => {
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = Math.imul(31, hash) + seed.charCodeAt(i) | 0;
+  }
+  return ((hash ^ (hash >>> 15)) >>> 0) / 4294967296;
+};
+
 export function PredictionForm() {
   const [isLoading, setIsLoading] = useState(false)
   const [result, setResult] = useState<PredictionResult | null>(null)
@@ -39,11 +48,15 @@ export function PredictionForm() {
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
+    const seedString = JSON.stringify(formData)
+    const r1 = seededRandom(seedString + "sty")
+    const r2 = seededRandom(seedString + "conf")
+
     // Mock prediction result
-    const mockSty = 0.83 + (Math.random() - 0.5) * 0.3
+    const mockSty = 0.83 + (r1 - 0.5) * 0.3
     setResult({
       sty: Math.max(0.1, mockSty),
-      confidence: 0.85 + Math.random() * 0.1,
+      confidence: 0.85 + r2 * 0.1,
     })
     setIsLoading(false)
   }
@@ -54,10 +67,14 @@ export function PredictionForm() {
     await new Promise((resolve) => setTimeout(resolve, 3000))
 
     // Mock batch results
-    const mockResults = Array.from({ length: 5 }, (_, i) => ({
-      sty: 0.7 + Math.random() * 0.4,
-      confidence: 0.8 + Math.random() * 0.15,
-    }))
+    const mockResults = Array.from({ length: 5 }, (_, i) => {
+      const r1 = seededRandom(`batch-${i}-sty`)
+      const r2 = seededRandom(`batch-${i}-conf`)
+      return {
+        sty: 0.7 + r1 * 0.4,
+        confidence: 0.8 + r2 * 0.15,
+      }
+    })
     setBatchResults(mockResults)
     setIsLoading(false)
   }
